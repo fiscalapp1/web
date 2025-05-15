@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiscal App</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://kit.fontawesome.com/116c8788a5.js" crossorigin="anonymous"></script>
+  <script src="js/app.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body>
+<header>
+  <div class="header-left">
+    <a href="index.html" class="brand-link">
+      <img src="img/logo.jpeg" class="logo" alt="FiscalApp Logo" />
+      <span>Fiscal App</span>
+    </a>
+  </div>
+  <div class="menu">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</header>
+
+
+
+<div class="side-menu" id="side-menu">
+  <div class="side-menu-header">
+    <a href="index.html" class="menu-link">
+      <img src="img/logo.jpeg" class="logo" alt="FiscalApp Logo" />
+      <span>Fiscal App</span>
+    </a>
+    <button id="cerrar-menu" class="cerrar-menu">&times;</button>
+  </div>
+
+
+  <ul class="menu-acordeon">
+    <li class="acordeon-item">
+      <a href="index.html" class="acordeon-header no-toggle">
+        <span>Inicio</span>
+        <i class="fa-solid fa-house"></i>
+      </a>
+    </li>
+
+    <li class="acordeon-item">
+      <div class="acordeon-header">
+        <span>¿Quiénes somos?</span>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      <div class="acordeon-content">
+        <p>
+          Somos un equipo comprometido en facilitarte el manejo de tus responsabilidades fiscales con herramientas intuitivas y confiables. Nuestra calculadora fiscal te ayuda a conocer tus compromisos tributarios de manera rápida y precisa, apoyando tu planificación financiera y cumplimiento legal.
+        </p>
+        <p>
+          Trabajamos con transparencia y simplicidad para ofrecerte un servicio confiable y actualizado, acompañándote en tu organización financiera.
+        </p>
+      </div>
+    </li>
+
+    <li class="acordeon-item">
+      <div class="acordeon-header">
+        <span>Quejas y Sugerencias</span>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      <div class="acordeon-content">
+        <p>
+          <a href="mailto:fiscalapp1@gmail.com">fiscalapp1@gmail.com</a>
+        </p>
+      </div>
+    </li>
+    <li class="acordeon-item">
+      <div class="acordeon-header">
+        <span>Contáctenos</span>
+        <i class="fa-solid fa-chevron-right"></i>
+      </div>
+      <div class="acordeon-content">
+        <p>Puedes escribirnos a fiscalapp@email.com o llamarnos al (809) 555-1234.</p>
+        <p>
+          <a href="https://www.instagram.com/fiscalappoficial01?igsh=MWl6ZnB0Z2c1YzJ4eA==" target="_blank" style="color: white; text-decoration: none;">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+        </p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<div class="overlay" id="overlay"></div>
+<main class="container">
+  <div class="card highlight">
+    <div class="icon-container">
+      <i class="fa-solid fa-calculator"></i>
+    </div>
+    <div class="card-content">
+      <p class="card-title">Calculadora de impuestos</p>
+      <button>Calcular</button>
+    </div>
+  </div>
+
+  <div class="card" id="que-es-impuesto">
+    <div class="icon-container">
+      <i class="fa-solid fa-question-circle"></i>
+    </div>
+    <div class="card-content">
+      <p class="card-title">¿Qué es cada impuesto?</p>
+      <p class="card-description">Breves explicaciones por categoría</p>
+    </div>
+    <div class="chevron-icon">
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+  </div>
+
+  <div class="card" id="abrir-historial">
+    <div class="icon-container">
+      <i class="fa-solid fa-clock-rotate-left"></i>
+    </div>
+    <div class="card-content">
+      <p class="card-title">Historial de cálculos</p>
+      <p class="card-description">Lista de cálculos hechos</p>
+    </div>
+    <div class="chevron-icon">
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="icon-container">
+      <i class="fa-solid fa-lightbulb"></i>
+    </div>
+    <div class="card-content">
+      <p class="card-title">Tips y sugerencias</p>
+      <p class="card-description">Consejos útiles para optimizar tus cálculos</p>
+    </div>
+    <div class="chevron-icon">
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="icon-container">
+      <i class="fa-solid fa-file-lines"></i>
+    </div>
+    <div class="card-content">
+      <p class="card-title">Preguntas frecuentes</p>
+      <p class="card-description">Respuestas rápidas a dudas comunes</p>
+    </div>
+    <div class="chevron-icon">
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+  </div>
+</main>
+
+<div class="popup-calculadora" id="popup-calculadora">
+  <div class="calc-header">
+    <h2><i class="fa-solid fa-calculator"></i> FiscalApp</h2>
+    <button id="cerrar-calculadora" class="cerrar-calculadora">&times;</button>
+  </div>
+
+  <!-- Selector de pestañas -->
+  <div class="calc-tabs">
+    <button class="active" data-tab="tab-itbis">ITBIS</button>
+    <button data-tab="tab-isr">ISR</button>
+    <button data-tab="tab-isc">ISC</button>
+  </div>
+
+  <!-- Contenido ITBIS -->
+  <div class="calc-tab-content" id="tab-itbis">
+    <div class="calc-form">
+      <div class="tabla-scroll">
+      <table>
+        <thead>
+        <tr>
+          <th>Producto/Servicio</th>
+          <th>Tipo</th>
+          <th>Categoría</th>
+          <th>Precio Unit..</th>
+          <th>Cantidad</th>
+          <th>ITBIS</th>
+          <th>Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td id="campo-nombre">
+            <input type="text" placeholder="Nombre" id="nombre-producto" />
+          </td>
+          <td>
+            <select id="tipo">
+              <option>Producto</option>
+              <option>Servicio</option>
+            </select>
+          </td>
+          <td>
+            <select id="categoria">
+              <option value="">General</option>
+              <option value="exento">Lácteos</option>
+              <option value="exento">Carnes</option>
+              <option value="exento">Café sin tostar</option>
+              <option value="exento">Frutas</option>
+              <option value="exento">Vegetales</option>
+              <option value="exento">Cereales</option>
+              <option value="exento">Legumbres</option>
+              <option value="exento">Animales vivos</option>
+              <option value="exento">Harinas</option>
+              <option value="exento">Cacao en grano</option>
+              <option value="reducido">Yogurt</option>
+              <option value="reducido">Mantequilla</option>
+              <option value="reducido">Café</option>
+              <option value="reducido">Grasas</option>
+              <option value="reducido">Azúcares</option>
+              <option value="reducido">Chocolate</option>
+            </select>
+          </td>
+          <td><input type="number" placeholder="Precio" id="precio" /></td>
+          <td><input type="number" value="1" id="cantidad" /></td>
+          <td><input type="text" value="18%" disabled id="tasa-itbis" /></td>
+          <td id="total">0</td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="totales">
+        <p>Subtotal: <span id="subtotal">RD$ 0.00</span></p>
+        <p>ITBIS total: <span id="itbis">RD$ 0.00</span></p>
+        <p>Total con ITBIS: <span id="total-itbis">RD$ 0.00</span></p>
+      </div>
+
+      <button class="btn-calcular-popup" id="btn-calcular-popup">Calcular</button>
+      <button class="btn-limpiar-popup" id="btn-limpiar-itbis">Borrar todo</button>
+      <p id="info-itbis" style="text-align: right; color: #800000; font-weight: bold; margin-top: 10px;"></p>
+
+    </div>
+  </div>
+
+  <div class="calc-tab-content" id="tab-isr" style="display: none;">
+    <div class="isr-box">
+      <div class="isr-header">
+        <i class="fa-solid fa-calculator"></i>
+        <span>Calculadora ISR Empresas – RD</span>
+      </div>
+
+      <label for="beneficio-anual">Beneficios obtenidos</label>
+      <input type="number" id="beneficio-anual" placeholder="RD$ 0" />
+
+      <div class="tasa-info">
+        <span>Tasa:</span>
+        <strong>27%</strong>
+      </div>
+
+      <div class="isr-resultado">
+        <span>Impuesto a pagar</span>
+        <strong id="resultado-isr">RD$ 0.00</strong>
+      </div>
+    </div>
+
+    <button class="btn-calcular-popup" id="btn-calcular-isr">Calcular</button>
+    <button class="btn-limpiar-popup" id="btn-limpiar-isr">Borrar todo</button>
+  </div>
+
+
+<div class="calc-tab-content" id="tab-isc" style="display: none;">
+  <div class="isc-box">
+    <div class="isc-header">
+      <i class="fa-solid fa-calculator"></i>
+      <span>ISC (Servicios)</span>
+    </div>
+
+    <label for="tipo-servicio-isc"><strong>Tipo de Servicio</strong></label>
+    <select id="tipo-servicio-isc">
+      <option value="">Seleccionar</option>
+      <option value="telecom">Telecomunicaciones </option>
+      <option value="seguros">Seguros </option>
+      <option value="cheques">Cheques y transferencias</option>
+    </select>
+
+    <label for="monto-servicio-isc"><strong>Monto del Servicio</strong></label>
+    <input type="number" id="monto-servicio-isc" placeholder="RD$" />
+
+    <label for="tasa-isc"><strong>Tasa (%)</strong></label>
+    <input type="text" id="tasa-isc" placeholder="%" disabled />
+
+    <div class="totales" style="margin-top: 20px;">
+      <p>Monto base: <span id="monto-base-isc">RD$ 0.00</span></p>
+      <p>ISC aplicado: <span id="isc-aplicado">RD$ 0.00</span></p>
+      <p>Total con ISC: <span id="total-con-isc">RD$ 0.00</span></p>
+    </div>
+
+    <button class="btn-calcular-popup" id="btn-calcular-isc">Calcular</button>
+    <button class="btn-limpiar-popup" id="btn-limpiar-isc">Borrar todo</button>
+  </div>
+</div>
+</div>
+
+  <!-- Ventana emergente de información de impuestos -->
+<div class="info-impuestos" id="info-impuestos">
+  <h2>¿Qué es cada impuesto?</h2>
+  <h3>Explora los principales tipos de impuestos aplicados en RD.</h3>
+
+  <div class="categoria">
+    <div class="categoria-header">
+      <i class="fa-solid fa-sack-dollar"></i>
+      <h3>Impuestos sobre los Ingresos</h3>
+    </div>
+    <div class="impuesto-card">
+      <h4>Impuesto sobre la Renta (ISR)</h4>
+      <p><strong>¿Qué es?</strong> Grava toda renta, ingreso, utilidad o beneficio obtenido por personas físicas, sociedades y sucesiones indivisas.</p>
+      <p><strong>¿Quiénes lo pagan?</strong> Personas naturales o jurídicas residentes y sucesiones con domicilio en RD.</p>
+    </div>
+  </div>
+
+  <div class="categoria">
+    <div class="categoria-header">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <h3>Impuestos al Consumo</h3>
+    </div>
+    <div class="impuesto-card">
+      <h4>Impuesto sobre Transferencias de Bienes. Industrializados y Servicios (ITBIS)</h4>
+      <p><strong>¿Qué es?</strong> Es un impuesto al valor agregado aplicado a bienes industrializados y servicios.</p>
+      <p><strong>¿Quiénes lo pagan?</strong> Personas o empresas que transfieren bienes, importan o prestan servicios gravados.</p>
+    </div>
+    <div class="impuesto-card">
+      <h4>Impuesto Selectivo al Consumo (ISC)</h4>
+      <p><strong>¿Qué es?</strong> Grava productos como alcohol, tabaco, combustibles y servicios como seguros o telecomunicaciones.</p>
+      <p><strong>¿Quiénes lo pagan?</strong> Importadores, fabricantes y prestadores de servicios gravados.</p>
+    </div>
+  </div>
+
+
+  <div class="categoria">
+    <div class="categoria-header">
+      <i class="fa-solid fa-scale-balanced"></i>
+      <h3>Otros Impuestos Importantes</h3>
+    </div>
+    <div class="impuesto-card">
+
+      <h4>Impuesto sobre la Propiedad Inmobiliaria (IPI)</h4>
+     <p>Se aplica a inmuebles cuyo valor total excede el umbral exento.</p>
+      <h4>Impuesto a la Emisión de Cheques</h4>
+      <p>Grava la emisión de cheques en cuentas bancarias en moneda nacional.</p>
+
+      <h4>Impuesto de Circulación de Vehículos (Marbete)</h4>
+      <p>Se cobra anualmente por la tenencia de vehículos registrados.</p>
+
+    </div>
+  </div>
+  <button id="cerrar-info">Cerrar</button>
+</div>
+
+<div class="popup-historial" id="popup-historial">
+  <h2>Historial de Cálculos</h2>
+  <ul id="lista-historial"></ul>
+  <button id="cerrar-historial">Cerrar</button>
+  <button id="limpiar-historial">Limpiar Historial</button>
+</div>
+
+<div class="popup-tips" id="popup-tips">
+  <h2>Consejos para optimizar tus cálculos</h2>
+  <p class="subtitulo">Evita errores comunes y maximiza tu precisión fiscal.</p>
+
+  <div class="tip">
+    <div class="tip-icon"><i class="fa-solid fa-lightbulb"></i></div>
+    <div class="tip-content">
+      <p class="tip-title">Solicita comprobantes fiscales</p>
+      <p>Solicita siempre facturas con NCF en tus compras importantes.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-icon"><i class="fa-solid fa-folder"></i></div>
+    <div class="tip-content">
+      <p class="tip-title">Actualízate constantemente</p>
+      <p>Consulta periódicamente la página web de la DGII para novedades o cambios.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-icon"><i class="fa-solid fa-chart-bar"></i></div>
+    <div class="tip-content">
+      <p class="tip-title">Aclara tus dudas con expertos</p>
+      <p>No temas preguntar o consultar con expertos; es mejor aclarar dudas que pagar multas.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-icon"><i class="fa-solid fa-file-invoice"></i></div>
+    <div class="tip-content">
+      <p class="tip-title">No ignores notificaciones de la DGII.</p>
+      <p> Revisa tu buzón tributario regularmente, ya que algunas notificaciones tienen plazos que debes cumplir.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+    <div class="tip-content">
+      <p class="tip-title">Usa la función de historial de la app</p>
+      <p>Revisa cálculos anteriores para evitar duplicaciones y verificar consistencia en tus declaraciones.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-icon"><i class="fa-solid fa-check"></i></div>
+    <div class="tip-content">
+      <p class="tip-title">Utiliza un sistema de facturación adecuado.</p>
+      <p>Asegúrate de que tus facturas cumplan con los requisitos fiscales para que sean válidas ante la DGII.</p>
+    </div>
+  </div>
+
+  <button id="cerrar-tips">Volver al menú principal</button>
+</div>
+
+<div class="popup-faq" id="popup-faq">
+  <h2>Preguntas Frecuentes</h2>
+  <div class="faq-item">
+    <h3>¿Cuáles datos necesito tener a la mano para usar esta calculadora?<i class="fa-solid fa-chevron-right"></i></h3>
+    <div class="faq-content">
+    <ul>
+      <li><strong>ITBIS:</strong> Es necesario contar con el valor total del bien o producto sobre el cual se aplicará el impuesto.</li>
+      <li><strong>ISR de una empresa:</strong> Se requiere el total de ingresos brutos de la entidad correspondiente.</li>
+      <li><strong>ISC sobre servicios:</strong> Debes ingresar el monto total de los ingresos generados por los servicios prestados.</li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="faq-item">
+    <h3>¿La app guarda un historial de mis cálculos o se eliminan al salir? <i class="fa-solid fa-chevron-right"></i></h3>
+    <div class="faq-content">
+    <p>Sí, la aplicación almacena un historial local de los cálculos realizados. Dicho historial se mantiene exclusivamente en el dispositivo del usuario y no se comparte con terceros. El historial puede ser eliminado manualmente en cualquier momento a través de la configuración de la app.</p>
+  </div>
+  </div>
+
+  <div class="faq-item">
+    <h3>¿Dónde puedo encontrar información oficial sobre mis obligaciones fiscales en la DGII? <i class="fa-solid fa-chevron-right"></i></h3>
+    <div class = "faq-content">
+    <p>La información oficial está disponible en el portal de la Dirección General de Impuestos Internos (DGII): <a href="https://www.dgii.gov.do" target="_blank">https://www.dgii.gov.do</a>.</p>
+  </div>
+  </div>
+
+  <div class="faq-item">
+    <h3>¿Cómo puedo contactar al equipo de desarrollo de esta aplicación? <i class="fa-solid fa-chevron-right"></i></h3>
+    <div class = "faq-content">
+    <p>Puedes contactarnos a través de nuestro correo: <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a>, o mediante el formulario de contacto disponible en la sección "Acerca de" dentro de la aplicación.</p>
+  </div>
+    </div>
+
+  <div class="faq-item">
+    <h3>¿Esta app tiene algún costo o es completamente gratuita? <i class="fa-solid fa-chevron-right"></i></h3>
+    <div class = "faq-content">
+    <p>Esta aplicación es totalmente gratuita, desarrollada para proporcionar una herramienta eficiente y accesible para el cálculo de impuestos.</p>
+  </div>
+  </div>
+
+  <div class="faq-item">
+    <h3>¿Mis datos están cifrados o protegidos de alguna forma? <i class="fa-solid fa-chevron-right"></i></h3>
+    <div class = "faq-content">
+    <p>Sí, la aplicación maneja todas las entradas de datos y el historial de cálculos de manera segura en el dispositivo local del usuario. No se almacenan ni transmiten datos personales, garantizando la privacidad y protección de la información ingresada.</p>
+  </div>
+  </div>
+
+  <button id="cerrar-faq">Cerrar</button>
+</div>
+<footer>  © 2025 FiscalApp - Todos los derechos reservados</footer>
+</body>
+</html>
