@@ -169,7 +169,7 @@ header {
 .acordeon-content {
   display: none;
   padding: 10px 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #f0f0f0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   font-weight: bolder;
@@ -707,7 +707,7 @@ button:hover {
 
 .tip-icon {
   background-color: #e5d8fd;
-  color: #6f42c1;
+  color: #800000;
   padding: 10px;
   border-radius: 50%;
   font-size: 18px;
@@ -725,7 +725,7 @@ button:hover {
 }
 
 #cerrar-tips {
-  background-color: #6f42c1;
+  background-color: #800000;
   color: white;
   border: none;
   border-radius: 10px;
@@ -737,7 +737,7 @@ button:hover {
 }
 
 #cerrar-tips:hover {
-  background-color: #5a33a0;
+  background-color: #bf0909;
 }
 
 .popup-faq {
