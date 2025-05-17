@@ -1,4 +1,8 @@
 
+window.addEventListener('DOMContentLoaded', () => {
+  sincronizarCategoriaPorNombre();
+});
+
 function closeOnOutsideClick(popupId) {
   const popup = document.getElementById(popupId);
 
@@ -248,9 +252,8 @@ tipoSelect.addEventListener('change', () => {
     input.id = 'nombre-producto';
     campoNombre.innerHTML = '';
     campoNombre.appendChild(input);
-
-    categoriaSelect.disabled = false;
-    infoITBIS.textContent = '';
+// Llamar sincronización
+    sincronizarCategoriaPorNombre();
   }
 });
 
@@ -437,3 +440,37 @@ function renderHistorial() {
     listaHistorial.appendChild(li);
   });
 }
+
+function sincronizarCategoriaPorNombre() {
+  const nombreInput = document.getElementById('nombre-producto');
+  const categoriaSelect = document.getElementById('categoria');
+
+  if (!nombreInput || !categoriaSelect) return;
+
+  const opciones = Array.from(categoriaSelect.options).filter(opt => opt.value !== "");
+
+  nombreInput.addEventListener('input', () => {
+    const valor = nombreInput.value.trim().toLowerCase();
+
+    if (valor === '') return;
+
+    // Buscar la primera opción cuyo texto contenga el valor ingresado
+    const opcionEncontrada = opciones.find(opt =>
+        opt.textContent.toLowerCase().includes(valor)
+    );
+
+    if (opcionEncontrada) {
+      categoriaSelect.selectedIndex = opcionEncontrada.index;
+
+      // Mostrar mensaje según el tipo de categoría
+      if (opcionEncontrada.value === 'exento') {
+        infoITBIS.textContent = 'Esta categoría tiene una exención del ITBIS.';
+      } else if (opcionEncontrada.value === 'reducido') {
+        infoITBIS.textContent = 'Esta categoría tiene una tasa reducida del 16% de ITBIS.';
+      } else {
+        infoITBIS.textContent = 'Se aplicará la tasa general del 18% de ITBIS.';
+      }
+    }
+  });
+}
+

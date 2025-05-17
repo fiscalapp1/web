@@ -298,6 +298,13 @@ button:hover {
   cursor: pointer;
 }
 
+#tab-isr .isr-box,
+#tab-isc .isc-box {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .popup-calculadora {
   display: none;
   position: fixed;
